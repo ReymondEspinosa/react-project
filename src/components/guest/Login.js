@@ -4,20 +4,38 @@ import { Link } from "react-router-dom"
 import Global from "../Global"
 import "../../css/login.css"
 
-import Auth from "../storage/storage"
+import { axiosRequestPOST } from "../storage/axios"
+import {toastrError, toastrSuccess} from "../storage/toastr"
 
+export const requestResultLogin = response => {
+    switch(response.data.message){
+        case 'login-success' : 
+            toastrSuccess('Login Success');
+        break;
+
+        case 'not-found' : 
+            toastrError('Credentials not found');
+        break;
+
+        default: //error
+            let message = Object.values(response.data.messages);
+            message.map(function(value, key){
+                toastrError(value[0]);
+            })
+    }
+}
 export default class Login extends Global{
     constructor(prop){
         super(prop)
 
         this.state = {
             span : {
-                credential_email : 'span-credential-email d-none',
-                credential_password : 'span-credential-password d-none'
+                credential_key_login : 'span-credential-email d-none',
+                credential_password_login : 'span-credential-password d-none'
             },
             form : {
-                credential_email : '',
-                credential_password : '',
+                credential_key_login : '',
+                credential_password_login : '',
                 rememberMe : false,
             },
         }
@@ -25,9 +43,14 @@ export default class Login extends Global{
 
     handleSubmit = (event) => {
         event.preventDefault()
-        Auth.login(() => {
-            window.location.href = "/dashboard"
-        })
+        
+        var request = {
+            url : '/api/sample/access',
+            data : this.state.form,
+            requestor  : 'Login Request'
+        }
+
+        axiosRequestPOST(request)
     }
 
     render(){
@@ -63,9 +86,9 @@ export default class Login extends Global{
                                         <div className="col-lg-8 offset-lg-2 col-10 offset-1 mt-4">
                                             <div className="form-group row mb-1">
                                                 <label className="has-float-label col-12 p-0">
-                                                    <input className="form-control rounded-0" autoComplete="off" type="text" id="credential_email" name="credential_email" value={this.state.form.credential_email}
+                                                    <input className="form-control rounded-0" autoComplete="off" type="text" id="credential_key_login" name="credential_key_login" value={this.state.form.credential_key_login}
                                                     onFocus={this.onFocus} onChange={this.onValueChange} onBlur={this.onBlur}/>
-                                                    <span className={this.state.span.credential_email}>Phone, email or username</span>
+                                                    <span className={this.state.span.credential_key_login}>Phone, email or username</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -74,9 +97,9 @@ export default class Login extends Global{
                                         <div className="col-lg-8 offset-lg-2 col-10 offset-1 mt-2">
                                             <div className="form-group row mb-1">
                                                 <label className="has-float-label col-12 p-0">
-                                                    <input className="form-control rounded-0" type="password" id="credential_password" name="credential_password" value={this.state.form.credential_password}
+                                                    <input className="form-control rounded-0" type="password" id="credential_password_login" name="credential_password_login" value={this.state.form.credential_password_login}
                                                     onFocus={this.onFocus} onChange={this.onValueChange} onBlur={this.onBlur}/>
-                                                    <span className={this.state.span.credential_password}>Password</span>
+                                                    <span className={this.state.span.credential_password_login}>Password</span>
                                                 </label>
                                             </div>
                                         </div>

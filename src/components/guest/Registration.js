@@ -4,24 +4,47 @@ import { Link } from "react-router-dom"
 import Global from "../Global"
 import "../../css/login.css"
 
+import { axiosRequestPOST } from "../storage/axios"
+import { toastrError, toastrSuccess } from "../storage/toastr"
+
+export const requestResultRegistration = response => {
+    switch(response.data.message){
+        case 'registration-success':
+            toastrSuccess('Registration success');
+            break;
+        default: //error
+            let message = Object.values(response.data.messages);
+            message.map(function(value, key){
+                toastrError(value[0]);
+            })
+    }
+}
 export default class Registration extends Global{
     constructor(prop){
         super(prop)
 
         this.state = {
             span : {
-                credential_email : 'span-credential-email d-none',
-                credential_password : 'span-credential-password d-none'
+                credential_key_registration : 'span-credential-email d-none',
+                credential_password_registration : 'span-credential-password d-none'
             },
             form : {
-                credential_email : '',
-                credential_password : '',
+                credential_key_registration : '',
+                credential_password_registration : '',
             },
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
+        
+        var request = {
+            url : '/api/sample/access1',
+            data : this.state.form,
+            requestor  : 'Registration Request'
+        }
+
+        axiosRequestPOST(request)
     }
 
     render(){
@@ -57,9 +80,9 @@ export default class Registration extends Global{
                                         <div className="col-lg-8 offset-lg-2 col-10 offset-1 mt-4">
                                             <div className="form-group row mb-1">
                                                 <label className="has-float-label col-12 p-0">
-                                                    <input className="form-control rounded-0" autoComplete="off" type="text" id="credential_email" name="credential_email" value={this.state.form.email}
+                                                    <input className="form-control rounded-0" autoComplete="off" type="text" id="credential_key_registration" name="credential_key_registration" value={this.state.form.email}
                                                     onFocus={e => this.onFocus(e, "email")} onChange={this.onValueChange} onBlur={e => this.onBlur(e, "email")}/>
-                                                    <span className={this.state.span.credential_email}>Email</span>
+                                                    <span className={this.state.span.credential_key_registration}>Email</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -68,9 +91,9 @@ export default class Registration extends Global{
                                         <div className="col-lg-8 offset-lg-2 col-10 offset-1 mt-2">
                                             <div className="form-group row mb-1">
                                                 <label className="has-float-label col-12 p-0">
-                                                    <input className="form-control rounded-0" type="password" id="credential_password" name="credential_password" value={this.state.form.password}
+                                                    <input className="form-control rounded-0" type="password" id="credential_password_registration" name="credential_password_registration" value={this.state.form.password}
                                                     onFocus={e => this.onFocus(e, "password")} onChange={this.onValueChange} onBlur={e => this.onBlur(e, "password")}/>
-                                                    <span className={this.state.span.credential_password}>Password</span>
+                                                    <span className={this.state.span.credential_password_registration}>Password</span>
                                                 </label>
                                             </div>
                                         </div>

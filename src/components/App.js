@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Route, BrowserRouter, Switch} from 'react-router-dom'
-import {Authenticated, NotAuthenticated} from '../middleware'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { Authenticated, NotAuthenticated } from '../middleware'
 
 // <-- Guest -->
 import Login from './guest/Login';
@@ -20,7 +20,7 @@ export default class App extends Component{
         <Switch>
           {/* <-- Guest Route's --> */}
           <NotAuthenticated exact path="/" component={Login}/>
-          <NotAuthenticated exact path="/register" component={Registration}/>
+          <NotAuthenticated exact path="/register" component={Registration}/> 
           <NotAuthenticated exact path="/forgot-password" component={ForgotPassword}/>
 
           {/* <-- Auth Route's --> */}

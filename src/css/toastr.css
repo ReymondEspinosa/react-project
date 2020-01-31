@@ -1,0 +1,31 @@
+.Toastify__toast{
+    border-radius: 5px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Toastify__toast:hover{
+    box-shadow: 0 0 12px #000;
+    opacity: 1;
+}
+
+.Toastify__toast--error{
+    background-image: url('/image/toast-error.jpg');
+}
+
+.Toastify__toast--success{
+    background : #41a46d;
+    background-image: url('/image/toast-success.jpg');
+}
+
+.Toastify__toast-body{
+    padding: 15px 15px 15px 90px;
+    width: 100px;
+    font-size: 13px;
+    word-wrap: break-word;
+    font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+}
+
+.Toastify__close-button{
+    display: none;
+} 

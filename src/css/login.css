@@ -12,6 +12,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 85vh;
+    /* height: 284px;  */
 }
 
 .card-body{
@@ -19,12 +20,11 @@ body{
     padding-left: 15px;
 }
 
-.label,h2{
+.label, h2, .btn-primary-edit{
     color: #efe7e7 !important;
 }
 
 .btn-primary-edit{
-    color: #efe7e7 !important;
     background-color: transparent !important;
     border-color: #efe7e7 !important;
 }
