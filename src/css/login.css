@@ -1,0 +1,64 @@
+body{
+    background: #f5f2f2;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.content-left{
+    height: 439px;
+}
+
+.background-image-right{
+    background-image: url("/image/blue-bubble-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 85vh;
+}
+
+.card-body{
+    padding-right: 14px;
+    padding-left: 15px;
+}
+
+.label,h2{
+    color: #efe7e7 !important;
+}
+
+.btn-primary-edit{
+    color: #efe7e7 !important;
+    background-color: transparent !important;
+    border-color: #efe7e7 !important;
+}
+
+.btn-primary-edit:hover{
+    background-color: #efe7e7 !important;    
+    color: #01a8dc !important;
+}
+
+.hr-style-right,.hr-style-left{
+    height: 1px;
+    margin: 0px;
+}
+
+.hr-style-right{
+    background-color: #efe7e7;
+}
+
+.hr-style-left{
+    background-color: #01a8dc;
+}
+
+.font, .label-blue{
+    color: #01a8dc !important;
+}
+
+.rounded{
+    border-radius: 1.25rem !important;
+}
+
+.label{
+    font-size: 1rem;
+}
+
+.has-float-label>span:last-of-type {
+    background-color: #fff;
+}
