@@ -1,10 +1,7 @@
-/* body{
-    background-color: #1dacbf;
-}
-
-.background-image-right{
+.background-image-not-found{
     background: url('/image/sadness.png');
     background-repeat: no-repeat;
+    height: 284px; 
 }
 
 .number404{
@@ -15,15 +12,18 @@
     color: #92e3ff;
 }
 
-.btn-outline-primary{
-    background-color: #92e3ff;
-    border-color: #92e3ff;
-    color: #5380b6;
-}
-.btn-outline-primary:hover{
-    background-color: #1484c3;
-}
-
 .mt-7{
     margin-top: 7rem;
-} */
+}
+
+.gbh-style{
+    background-color : '#92e3ff' !important;
+    border-color : '#92e3ff' !important;
+    color : '#5380b6' !important;
+}
+
+.gbh-style:hover{
+    background-color : '#1484c3' !important;
+    border-color : '#1484c3' !important;
+    color : '#92e3ff' !important;
+}

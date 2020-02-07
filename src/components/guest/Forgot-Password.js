@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 
 import Global from "../Global"
 
+//Global
+import GlobalButton, { GlobalLink } from "../global/button"
+import { GlobalTextField } from "../global/input"
+import { ShowModal } from "../global/modal"
+import { Header } from "../guest/ForSample"
+
 export default class ForgotPassword extends Global{
     constructor(props){
         super(props)
@@ -26,7 +32,7 @@ export default class ForgotPassword extends Global{
             <div className="container mt-lg-5 mt-3 mb-3 col-lg-8">
                 <div className="card rounded-0 shadow">
                     <div className="card-body pt-0 pb-0">
-                        <div className="row">
+                        <div className="row row-content">
                             <div className="col-lg-7 p-4 mt-5 content">
                                 <div className="row mt-4">
                                     <div className="col-4 offset-4">
@@ -48,18 +54,14 @@ export default class ForgotPassword extends Global{
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="row">
                                         <div className="col-8 offset-2 mt-2">
-                                            <div className="form-group row mb-1">
-                                                <label className="has-float-label col-12 p-0">
-                                                    <input className="form-control rounded-0" type="text" autoComplete="off" id="credential_key" name="credential_key" value={this.state.form.credential_key}
-                                                    onFocus={this.onFocus} onChange={this.onValueChange} onBlur={this.onBlur}/>
-                                                    <span className={this.state.span.credential_key}>Phone, e-mail, username</span>
-                                                </label>
-                                            </div>
+                                            <GlobalTextField onChange={this.onValueChange} onBlur={this.onBlur} onFocus={this.onFocus} 
+                                                value={this.state.form.credential_key} spanClass={this.state.span.credential_key} 
+                                                name="credential_key" spanName="Phone, e-mail, username" type="text"/>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-8 offset-2 text-center mt-3">
-                                            <button type="submit" className="forgot-password btn-block btn btn-primary pr-sm-5 pl-sm-5"><b> Reset </b></button>
+                                            <GlobalButton type="submit" className="forgot-password btn-primary btn-block login-form pr-sm-5 pl-sm-5" content="Reset"/>
                                         </div>
                                     </div>
                                 </form>
@@ -80,7 +82,9 @@ export default class ForgotPassword extends Global{
                                                 </label>
                                             </div>
                                             <div className="col-12 text-center mt-5">
-                                                <Link to="/" className="btn btn-primary btn-primary-edit btn-lg pr-sm-5 pl-sm-5 btn-sign-up"><b> Sign In </b></Link>
+                                                <GlobalLink to="/register" content="Sign Up" className="btn btn-primary btn-lg pr-sm-5 pl-sm-5"
+                                                    backgroundColor="transparent" color="#efe7e7" borderColor="#efe7e7" 
+                                                    hoverBackgroundColor="#efe7e7" hoverColor="#01a8dc"/> 
                                             </div>
                                         </div>
                                     </div>

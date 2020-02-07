@@ -1,10 +1,6 @@
-body{
-    background: #f5f2f2;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
-.content-left{
-    height: 439px;
+.row-content{
+    margin-right: -20px !important;
+    margin-left: -20px !important;
 }
 
 .background-image-right{
@@ -12,7 +8,6 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 85vh;
-    /* height: 284px;  */
 }
 
 .card-body{
@@ -20,18 +15,8 @@ body{
     padding-left: 15px;
 }
 
-.label, h2, .btn-primary-edit{
+.label, h2{
     color: #efe7e7 !important;
-}
-
-.btn-primary-edit{
-    background-color: transparent !important;
-    border-color: #efe7e7 !important;
-}
-
-.btn-primary-edit:hover{
-    background-color: #efe7e7 !important;    
-    color: #01a8dc !important;
 }
 
 .hr-style-right,.hr-style-left{
@@ -51,10 +36,6 @@ body{
     color: #01a8dc !important;
 }
 
-.rounded{
-    border-radius: 1.25rem !important;
-}
-
 .label{
     font-size: 1rem;
 }
@@ -62,3 +43,4 @@ body{
 .has-float-label>span:last-of-type {
     background-color: #fff;
 }
+

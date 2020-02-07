@@ -1,11 +1,11 @@
 class Auth {
-    login(cb){
-        localStorage.setItem('_OAUTH_', true)
+    login(cb, request){
+        localStorage.setItem('_OAUTH_', request)
         cb()
     }
 
     logout(cb){
-        localStorage.setItem('_OAUTH_', false)
+        localStorage.clear();
         cb()
     }
 

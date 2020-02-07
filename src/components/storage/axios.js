@@ -2,11 +2,15 @@ import axios from 'axios';
 
 import {requestResultLogin} from '../guest/Login'
 import {requestResultRegistration} from '../guest/Registration'
+import Auth from '../storage/storage';
 
 export const axiosRequestPOST = (request) => {
+    axios.defaults.headers.common['Authorization'] = 'Auth.isAuthenticated()';
+
     axios.post(request.url, request.data)
     .then(function(response){
-        postResponse(request.requestor, response)
+        console.log(response);
+        // postResponse(request.requestor, response)
     })
     .catch(function(error){
       console.log(error);

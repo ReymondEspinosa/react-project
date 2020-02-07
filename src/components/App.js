@@ -15,6 +15,9 @@ import NotFound from './NotFound';
 
 export default class App extends Component{
   render(){
+    document.body.style.backgroundColor = "#f5f2f2";
+    document.body.style.fontFamily = "Trebuchet MS, Helvetica, sans-serif";
+
     return (
       <BrowserRouter>
         <Switch>

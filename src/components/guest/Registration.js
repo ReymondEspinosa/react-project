@@ -7,6 +7,10 @@ import "../../css/login.css"
 import { axiosRequestPOST } from "../storage/axios"
 import { toastrError, toastrSuccess } from "../storage/toastr"
 
+//Global
+import GlobalButton, { GlobalLink } from "../global/button"
+import { GlobalTextField } from "../global/input"
+
 export const requestResultRegistration = response => {
     switch(response.data.message){
         case 'registration-success':
@@ -52,7 +56,7 @@ export default class Registration extends Global{
             <div className="container mt-lg-5 mt-3 mb-3 col-lg-8">
                 <div className="card rounded-0 shadow">
                     <div className="card-body pt-0 pb-0">
-                        <div className="row">
+                        <div className="row row-content">
                             <div className="col-lg-7 p-4 content order-2">
                                 <div className="row">
                                     <div className="col-12 mt-2 text-center">
@@ -66,8 +70,10 @@ export default class Registration extends Global{
                                 </div>
                                 <div className="row mt-3">
                                     <div className="col-12 mt-2 text-center">
-                                        <button type="button" className="btn btn-outline-primary rounded mr-2"><i className="fab fa-facebook-f"></i> Sign up with facebook</button>
-                                        <button type="button" className="btn btn-outline-danger rounded mr-2"><i className="fab fa-google"></i> Sign up with Gmail</button>
+                                        <GlobalButton rounded="1.25rem" content="Sign in with facebook"
+                                            icon="fab fa-facebook-f" className="btn-outline-primary mr-2"/>
+                                        <GlobalButton rounded="1.25rem" content="Sign in with Gmail"
+                                            icon="fab fa-google" className="btn-outline-danger mr-2"/>
                                     </div>
                                 </div>
                                 <div className="row mt-5">
@@ -78,29 +84,21 @@ export default class Registration extends Global{
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="row">
                                         <div className="col-lg-8 offset-lg-2 col-10 offset-1 mt-4">
-                                            <div className="form-group row mb-1">
-                                                <label className="has-float-label col-12 p-0">
-                                                    <input className="form-control rounded-0" autoComplete="off" type="text" id="credential_key_registration" name="credential_key_registration" value={this.state.form.email}
-                                                    onFocus={e => this.onFocus(e, "email")} onChange={this.onValueChange} onBlur={e => this.onBlur(e, "email")}/>
-                                                    <span className={this.state.span.credential_key_registration}>Email</span>
-                                                </label>
-                                            </div>
+                                            <GlobalTextField onChange={this.onValueChange} onBlur={this.onBlur} onFocus={this.onFocus} 
+                                                value={this.state.form.credential_key_registration} spanClass={this.state.span.credential_key_registration} 
+                                                name="credential_key_registration" spanName="Email" type="text"/>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-8 offset-lg-2 col-10 offset-1 mt-2">
-                                            <div className="form-group row mb-1">
-                                                <label className="has-float-label col-12 p-0">
-                                                    <input className="form-control rounded-0" type="password" id="credential_password_registration" name="credential_password_registration" value={this.state.form.password}
-                                                    onFocus={e => this.onFocus(e, "password")} onChange={this.onValueChange} onBlur={e => this.onBlur(e, "password")}/>
-                                                    <span className={this.state.span.credential_password_registration}>Password</span>
-                                                </label>
-                                            </div>
+                                            <GlobalTextField onChange={this.onValueChange} onBlur={this.onBlur} onFocus={this.onFocus} 
+                                                value={this.state.form.credential_password_registration} spanClass={this.state.span.credential_password_registration} 
+                                                name="credential_password_registration" spanName="Password" type="password"/>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-8 offset-2 text-center mt-3">
-                                            <button type="submit" className="btn btn-primary btn-block login-form pr-sm-5 pl-sm-5"><b> Sign Up </b></button>
+                                            <GlobalButton type="submit" content="Sign Up" className="btn-primary mr-2 btn-block"/>
                                         </div>
                                     </div>
                                 </form>
@@ -121,7 +119,9 @@ export default class Registration extends Global{
                                                 </label>
                                             </div>
                                             <div className="col-12 text-center mt-5">
-                                                <Link to="/" className="btn btn-primary btn-primary-edit btn-lg pr-sm-5 pl-sm-5 btn-sign-up"><b> Sign In </b></Link>
+                                                <GlobalLink to="/" content="Sign In" className="btn btn-primary btn-lg pr-sm-5 pl-sm-5"
+                                                    backgroundColor="transparent" color="#efe7e7" borderColor="#efe7e7" 
+                                                    hoverBackgroundColor="#efe7e7" hoverColor="#01a8dc"/> 
                                             </div>
                                         </div>
                                     </div>

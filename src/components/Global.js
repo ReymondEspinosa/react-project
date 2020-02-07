@@ -1,8 +1,15 @@
 import { Component } from "react";
 
 export default class Global extends Component{
+    constructor(props){
+        super(props)
 
-    onValueChange = (event) => {
+        this.state = {
+            showModal : false,
+        }
+    }
+
+    onValueChange = event => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -15,7 +22,7 @@ export default class Global extends Component{
         });
     }
     
-    onFocus = (event) =>{
+    onFocus = event =>{
         const target = event.target;
         const name = target.name;
         const value = name === 'credential_email' ? 'span-credential-email' : 'span-credential-password';
@@ -28,7 +35,7 @@ export default class Global extends Component{
         });
     }
     
-    onBlur = (event) =>{
+    onBlur = event =>{
         const target = event.target;
         const name = target.name;
         const value = name === 'credential_email' ? 'span-credential-email d-none' : 'span-credential-password d-none';
@@ -41,4 +48,16 @@ export default class Global extends Component{
         });
     }
 
+    clickModal = () => {
+        this.setState({
+            showModal : true,
+        });
+    }
+
+    closeModal = () => {
+        this.setState({
+            showModal : false,
+        });
+    }
+    
 }

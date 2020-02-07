@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import '../css/404.css'
-import { Link } from "react-router-dom";
 export default class NotFound extends Component{
     render(){
+        document.body.style.backgroundColor = "#1dacbf";
         return(
             <div className="container mt-7 col-lg-8 px-4">
                 <div className="row">
@@ -19,11 +19,11 @@ export default class NotFound extends Component{
                                 <h6 className="textColor">The page you requested was not be found</h6>
                             </div>
                             <div className="col-12 text-center mt-3">
-                                <Link to="/" className="btn btn-outline-primary rounded mr-2 px-5"> GO BACK HOME </Link>
+                                <a href="/" className="btn btn-outline-primary mr-2 px-5 gbh-style"> GO BACK HOME </a>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 background-image-right mt-5"></div>
+                    <div className="col-lg-6 background-image-not-found mt-5"></div>
                 </div>
             </div>
         )
